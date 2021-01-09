@@ -8,7 +8,6 @@ namespace MyFirstConsoleApplication
 {
     class Person
     {
-
         // Two public string member fields for name and location
         public string name, location;
     }
