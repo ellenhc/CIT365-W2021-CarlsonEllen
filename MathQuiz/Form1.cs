@@ -166,28 +166,35 @@ namespace MathQuiz
             {
                 int lengthOfAnswer = answerBox.Value.ToString().Length;
                 answerBox.Select(0, lengthOfAnswer);
+                answerBox.ValueChanged += play_Sound;
             }
         }
 
-        private void Sum_ValueChanged(object sender, EventArgs e)
+        private void play_Sound(object sender, EventArgs e)
         {
-            System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"D:\GitHub\CIT 365\MathQuiz\correct.wav");
-            player.Load();
-            if (addend1 + addend2 == sum.Value){
+            NumericUpDown answerBox = sender as NumericUpDown;
+            Console.WriteLine(answerBox.Name);
+            if (answerBox.Name == "sum" && answerBox.Value == (addend1 + addend2))
+            {
+                System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"D:\GitHub\CIT 365\MathQuiz\sounds\correct.wav");
                 player.Play();
             }
-            else if (minuend - subtrahend == difference.Value)
+            else if (answerBox.Name == "difference" && answerBox.Value == (minuend - subtrahend))
             {
+                System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"D:\GitHub\CIT 365\MathQuiz\sounds\correct.wav");
                 player.Play();
             }
-            else if (multiplicand * multiplier == product.Value)
+            else if (answerBox.Name == "product" && answerBox.Value == (multiplicand * multiplier)) 
             {
+                System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"D:\GitHub\CIT 365\MathQuiz\sounds\correct.wav");
                 player.Play();
             }
-            else if (dividend / divisor == quotient.Value)
+            else if (answerBox.Name == "quotient" && answerBox.Value == (dividend / divisor))
             {
+                System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"D:\GitHub\CIT 365\MathQuiz\sounds\correct.wav");
                 player.Play();
             }
         }
+            
     }
 }

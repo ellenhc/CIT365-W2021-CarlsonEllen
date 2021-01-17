@@ -129,6 +129,7 @@ namespace MathQuiz
             this.sum.Name = "sum";
             this.sum.Size = new System.Drawing.Size(100, 35);
             this.sum.TabIndex = 2;
+            this.sum.ValueChanged += new System.EventHandler(this.play_Sound);
             this.sum.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // difference
