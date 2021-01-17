@@ -94,7 +94,9 @@ namespace MathQuiz
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            // Get current date when Form1 loads
+            DateTime thisDate = DateTime.Now;
+            currentDate.Text = thisDate.ToString("dd MMMM yyyy");
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -127,12 +129,18 @@ namespace MathQuiz
                 MessageBox.Show("You got all the answers right!",
                                 "Congratulations!");
                 startButton.Enabled = true;
+                timeLabel.BackColor = SystemColors.Control;
             }
             else if (timeLeft > 0)
             {
                 // Display the new time left by updating the Time Left label.
                 timeLeft = timeLeft - 1;
                 timeLabel.Text = timeLeft + " seconds";
+                // Changes backcolor to red when there's 5 sec or less
+                if (timeLeft <= 5)
+                {
+                    timeLabel.BackColor = Color.Red;
+                }
             }
             else
             {
@@ -145,6 +153,7 @@ namespace MathQuiz
                 product.Value = multiplicand * multiplier;
                 quotient.Value = dividend / divisor;
                 startButton.Enabled = true;
+                timeLabel.BackColor = SystemColors.Control;
             }
         }
 
@@ -157,6 +166,27 @@ namespace MathQuiz
             {
                 int lengthOfAnswer = answerBox.Value.ToString().Length;
                 answerBox.Select(0, lengthOfAnswer);
+            }
+        }
+
+        private void Sum_ValueChanged(object sender, EventArgs e)
+        {
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"D:\GitHub\CIT 365\MathQuiz\correct.wav");
+            player.Load();
+            if (addend1 + addend2 == sum.Value){
+                player.Play();
+            }
+            else if (minuend - subtrahend == difference.Value)
+            {
+                player.Play();
+            }
+            else if (multiplicand * multiplier == product.Value)
+            {
+                player.Play();
+            }
+            else if (dividend / divisor == quotient.Value)
+            {
+                player.Play();
             }
         }
     }
