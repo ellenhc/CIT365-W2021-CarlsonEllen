@@ -173,26 +173,29 @@ namespace MathQuiz
         private void play_Sound(object sender, EventArgs e)
         {
             NumericUpDown answerBox = sender as NumericUpDown;
-            Console.WriteLine(answerBox.Name);
             if (answerBox.Name == "sum" && answerBox.Value == (addend1 + addend2))
             {
-                System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"D:\GitHub\CIT 365\MathQuiz\sounds\correct.wav");
-                player.Play();
+                /*System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"D:\GitHub\CIT 365\MathQuiz\sounds\correct.wav");
+                player.Play();*/
+                System.Media.SystemSounds.Exclamation.Play();
             }
             else if (answerBox.Name == "difference" && answerBox.Value == (minuend - subtrahend))
             {
-                System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"D:\GitHub\CIT 365\MathQuiz\sounds\correct.wav");
-                player.Play();
+                /*System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"D:\GitHub\CIT 365\MathQuiz\sounds\correct.wav");
+                player.Play();*/
+                System.Media.SystemSounds.Exclamation.Play();
             }
             else if (answerBox.Name == "product" && answerBox.Value == (multiplicand * multiplier)) 
             {
-                System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"D:\GitHub\CIT 365\MathQuiz\sounds\correct.wav");
-                player.Play();
+                /*System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"D:\GitHub\CIT 365\MathQuiz\sounds\correct.wav");
+                player.Play();*/
+                System.Media.SystemSounds.Exclamation.Play();
             }
             else if (answerBox.Name == "quotient" && answerBox.Value == (dividend / divisor))
             {
-                System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"D:\GitHub\CIT 365\MathQuiz\sounds\correct.wav");
-                player.Play();
+                /*System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"D:\GitHub\CIT 365\MathQuiz\sounds\correct.wav");
+                player.Play();*/
+                System.Media.SystemSounds.Exclamation.Play();
             }
         }
             
