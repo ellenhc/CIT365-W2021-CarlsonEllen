@@ -30,19 +30,19 @@ namespace MegaDesk_Carlson
         private void InitializeComponent()
         {
             this.nameLabel = new System.Windows.Forms.Label();
-            this.CustomerName = new System.Windows.Forms.TextBox();
+            this.customerName = new System.Windows.Forms.TextBox();
             this.widthLabel = new System.Windows.Forms.Label();
             this.deskWidth = new System.Windows.Forms.TextBox();
             this.deskDepth = new System.Windows.Forms.TextBox();
             this.depthLabel = new System.Windows.Forms.Label();
             this.ButtonSaveQuote = new System.Windows.Forms.Button();
-            this.NumDrawers = new System.Windows.Forms.TextBox();
+            this.numDrawers = new System.Windows.Forms.TextBox();
             this.drawersLabel = new System.Windows.Forms.Label();
             this.materialLabel = new System.Windows.Forms.Label();
             this.surfaceMaterials = new System.Windows.Forms.ComboBox();
             this.rushOrder = new System.Windows.Forms.ComboBox();
             this.rushLabel = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.quoteDate = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // nameLabel
@@ -54,12 +54,12 @@ namespace MegaDesk_Carlson
             this.nameLabel.TabIndex = 0;
             this.nameLabel.Text = "Customer Name:";
             // 
-            // CustomerName
+            // customerName
             // 
-            this.CustomerName.Location = new System.Drawing.Point(15, 25);
-            this.CustomerName.Name = "CustomerName";
-            this.CustomerName.Size = new System.Drawing.Size(100, 20);
-            this.CustomerName.TabIndex = 1;
+            this.customerName.Location = new System.Drawing.Point(15, 25);
+            this.customerName.Name = "customerName";
+            this.customerName.Size = new System.Drawing.Size(100, 20);
+            this.customerName.TabIndex = 1;
             // 
             // widthLabel
             // 
@@ -85,6 +85,7 @@ namespace MegaDesk_Carlson
             this.deskDepth.Size = new System.Drawing.Size(100, 20);
             this.deskDepth.TabIndex = 5;
             this.deskDepth.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Depth_KeyPress);
+            this.deskDepth.Validating += new System.ComponentModel.CancelEventHandler(this.Depth_Validating);
             // 
             // depthLabel
             // 
@@ -105,12 +106,12 @@ namespace MegaDesk_Carlson
             this.ButtonSaveQuote.UseVisualStyleBackColor = true;
             this.ButtonSaveQuote.Click += new System.EventHandler(this.ButtonSaveQuote_Click);
             // 
-            // NumDrawers
+            // numDrawers
             // 
-            this.NumDrawers.Location = new System.Drawing.Point(15, 184);
-            this.NumDrawers.Name = "NumDrawers";
-            this.NumDrawers.Size = new System.Drawing.Size(100, 20);
-            this.NumDrawers.TabIndex = 9;
+            this.numDrawers.Location = new System.Drawing.Point(15, 184);
+            this.numDrawers.Name = "numDrawers";
+            this.numDrawers.Size = new System.Drawing.Size(100, 20);
+            this.numDrawers.TabIndex = 9;
             // 
             // drawersLabel
             // 
@@ -168,31 +169,31 @@ namespace MegaDesk_Carlson
             this.rushLabel.TabIndex = 12;
             this.rushLabel.Text = "Rush Order";
             // 
-            // dateTimePicker1
+            // quoteDate
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(588, 12);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 14;
+            this.quoteDate.Location = new System.Drawing.Point(588, 12);
+            this.quoteDate.Name = "quoteDate";
+            this.quoteDate.Size = new System.Drawing.Size(200, 20);
+            this.quoteDate.TabIndex = 14;
             // 
             // AddQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.quoteDate);
             this.Controls.Add(this.rushOrder);
             this.Controls.Add(this.rushLabel);
             this.Controls.Add(this.surfaceMaterials);
             this.Controls.Add(this.materialLabel);
-            this.Controls.Add(this.NumDrawers);
+            this.Controls.Add(this.numDrawers);
             this.Controls.Add(this.drawersLabel);
             this.Controls.Add(this.ButtonSaveQuote);
             this.Controls.Add(this.deskDepth);
             this.Controls.Add(this.depthLabel);
             this.Controls.Add(this.deskWidth);
             this.Controls.Add(this.widthLabel);
-            this.Controls.Add(this.CustomerName);
+            this.Controls.Add(this.customerName);
             this.Controls.Add(this.nameLabel);
             this.Name = "AddQuote";
             this.Text = "Add Quote";
@@ -204,18 +205,18 @@ namespace MegaDesk_Carlson
         #endregion
 
         private System.Windows.Forms.Label nameLabel;
-        private System.Windows.Forms.TextBox CustomerName;
+        private System.Windows.Forms.TextBox customerName;
         private System.Windows.Forms.Label widthLabel;
         private System.Windows.Forms.TextBox deskWidth;
         private System.Windows.Forms.TextBox deskDepth;
         private System.Windows.Forms.Label depthLabel;
         private System.Windows.Forms.Button ButtonSaveQuote;
-        private System.Windows.Forms.TextBox NumDrawers;
+        private System.Windows.Forms.TextBox numDrawers;
         private System.Windows.Forms.Label drawersLabel;
         private System.Windows.Forms.Label materialLabel;
         private System.Windows.Forms.ComboBox surfaceMaterials;
         private System.Windows.Forms.ComboBox rushOrder;
         private System.Windows.Forms.Label rushLabel;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker quoteDate;
     }
 }

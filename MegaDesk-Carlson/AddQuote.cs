@@ -50,7 +50,6 @@ namespace MegaDesk_Carlson
             {
                 e.Cancel = true; //Not completely sure what this does
                 deskWidth.Text = String.Empty; //Empties the bad value
-                deskWidth.BackColor = Color.Red;
                 errorProvider.SetError(deskWidth, errorMsg); //Shows error sign that flashes
             }
         }
@@ -59,16 +58,45 @@ namespace MegaDesk_Carlson
         {
             string errorMsg = "";
             char ch = e.KeyChar;
-            if(!Char.IsDigit(ch) && !Char.IsControl(ch))
+            if (!Char.IsDigit(ch) && !Char.IsControl(ch))
             {
                 errorMsg = "Please enter a number between 12 and 48.";
+                e.Handled = true;
             }
+        }
+
+        private void ButtonSaveQuote_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int width = int.Parse(deskWidth.Text);
+                int depth = int.Parse(deskDepth.Text);
+                int drawers = int.Parse(numDrawers.Text);
+                int rushDays = int.Parse(rushOrder.Text);
+                // surfaceMaterials.Text
+                //Saves quote info into a new DeskQuote object
+                Desk newDesk = new Desk(width, depth, drawers, DesktopMaterial.Laminate);
+                DeskQuote newQuote = new DeskQuote(newDesk, customerName.Text, rushDays, quoteDate.Value);
+                DisplayQuote DisplayQuoteView = new DisplayQuote(newQuote);
+                DisplayQuoteView.Show(this);
+                Hide();
+            }
+            catch (Exception err)
+            {
+                Console.WriteLine(err.Message);
+            }
+        }
+
+        private void Depth_Validating(object sender, CancelEventArgs e)
+        {
+            string errorMsg = "";
             try
             {
                 int depth = int.Parse(deskDepth.Text);
+                //Else if input is a number:
                 if (!(depth >= DEPTH_MIN && depth <= DEPTH_MAX))
                 {
-                    errorMsg = "Please enter a number between 12 and 48.";
+                    errorMsg = "Depth must be between " + DEPTH_MIN + " inches and " + DEPTH_MAX + " inches.";
                 }
                 else
                 {
@@ -76,22 +104,17 @@ namespace MegaDesk_Carlson
                     errorProvider.Dispose(); //Removes the error provider when input is valid
                 }
             }
-            catch(Exception err)
+            catch (Exception err)
             {
                 Console.WriteLine(err.Message);
                 errorMsg = "Depth must be a number.";
             }
             if (errorMsg.Length > 0)
             {
+                e.Cancel = true; //Not completely sure what this does
                 deskDepth.Text = String.Empty; //Empties the bad value
-                deskDepth.BackColor = Color.Red;
                 errorProvider.SetError(deskDepth, errorMsg); //Shows error sign that flashes
             }
-        }
-
-        private void ButtonSaveQuote_Click(object sender, EventArgs e)
-        {
-            //will pass info over to DisplayQuote view
         }
     }
 }
