@@ -16,6 +16,8 @@ namespace MegaDesk_Carlson
         const int WIDTH_MAX = 96;
         const int DEPTH_MIN = 12;
         const int DEPTH_MAX = 48;
+        const int DRAWER_MIN = 0;
+        const int DRAWER_MAX = 7;
 
         ErrorProvider errorProvider = new System.Windows.Forms.ErrorProvider();
 

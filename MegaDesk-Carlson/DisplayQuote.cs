@@ -18,10 +18,10 @@ namespace MegaDesk_Carlson
             InitializeComponent();
             quote = new_quote;
             Console.WriteLine(quote.ToString());
-            //double price = new_quote.CalculateQuote();
-            CustomerName.Text = new_quote.GetCustomerName();
-            deskWidth.Text = new_quote.GetDeskWidth().ToString();
-            deskDepth.Text = new_quote.GetDeskDepth().ToString();
+            double price = new_quote.calculateQuote();
+            CustomerName.Text = new_quote.CustomerName;
+            deskWidth.Text = new_quote.getDeskWidth().ToString();
+            deskDepth.Text = new_quote.getDeskDepth().ToString();
         }
     }
 }

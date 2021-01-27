@@ -22,29 +22,50 @@ namespace MegaDesk_Carlson
         const int WIDTH_MAX = 96;
         const int DEPTH_MIN = 12;
         const int DEPTH_MAX = 48;
+        const int DRAWER_MIN = 0;
+        const int DRAWER_MAX = 7;
 
         private int width;
-        private int depth;
-        private int drawer;
+        public int Width
+        {
+            get { return width; }
+            set { width = value; }
+        }
 
-        
+        private int depth;
+        public int Depth
+        {
+            get { return depth; }
+            set { depth = value; }
+        }
+
+        private int drawers;
+        public int Drawers
+        {
+            get { return drawers; }
+            set { drawers = value; }
+        }
+
+        private DesktopMaterial surfaceMaterial;
+        public DesktopMaterial SurfaceMaterial
+        {
+            get { return surfaceMaterial; }
+            set { surfaceMaterial = value; }
+        }
+
 
         //Desk constructor
         public Desk(int deskWidth, int deskDepth, int numDrawers, DesktopMaterial surfaceMaterial)
         {
             width = deskWidth;
             depth = deskDepth;
-            drawer = numDrawers;
+            drawers = numDrawers;
         }
 
-        public int GetDeskWidth()
+        public int surfaceArea()
         {
-            return width;
-        }
-
-        public int GetDeskDepth()
-        {
-            return depth;
+            int area = width * depth;
+            return area;
         }
     }
 }
