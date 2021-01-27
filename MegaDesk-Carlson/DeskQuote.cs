@@ -20,23 +20,28 @@ namespace MegaDesk_Carlson
         private string customerName;
         public string CustomerName{
             get { return customerName; } //get method
-            set { customerName = value; } //set method
         }
 
         private int rushDays;
         public int RushDays
         {
             get { return rushDays; }
-            set { rushDays = value; }
         }
 
         private Desk Desk;
+        private DateTime quoteDate;
+        public DateTime QuoteDate
+        {
+            get { return quoteDate; }
+        }
 
         public DeskQuote(Desk newDesk, string customerName, int rushDays, DateTime quoteDate)
         {
             //to do
             this.customerName = customerName;
             this.Desk = newDesk;
+            this.rushDays = rushDays;
+            this.quoteDate = quoteDate;
         }
 
         public int getDeskWidth()
@@ -47,6 +52,16 @@ namespace MegaDesk_Carlson
         public int getDeskDepth()
         {
             return Desk.Depth;
+        }
+
+        public int getDeskDrawers()
+        {
+            return Desk.Drawers;
+        }
+
+        public string getDeskMaterial()
+        {
+            return Desk.SurfaceMaterial.ToString();
         }
 
         private double getMaterialCost(DesktopMaterial surfaceMaterial)
@@ -64,7 +79,6 @@ namespace MegaDesk_Carlson
                 case DesktopMaterial.Veneer:
                     return VENEER_PRICE;
                 default:
-                    //return 0 or something
                     return 0;
             }
         }

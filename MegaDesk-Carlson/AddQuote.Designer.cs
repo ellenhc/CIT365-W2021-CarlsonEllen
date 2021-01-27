@@ -75,7 +75,7 @@ namespace MegaDesk_Carlson
             this.deskWidth.Location = new System.Drawing.Point(15, 79);
             this.deskWidth.Name = "deskWidth";
             this.deskWidth.Size = new System.Drawing.Size(100, 20);
-            this.deskWidth.TabIndex = 3;
+            this.deskWidth.TabIndex = 2;
             this.deskWidth.Validating += new System.ComponentModel.CancelEventHandler(this.Width_Validating);
             // 
             // deskDepth
@@ -83,7 +83,7 @@ namespace MegaDesk_Carlson
             this.deskDepth.Location = new System.Drawing.Point(15, 132);
             this.deskDepth.Name = "deskDepth";
             this.deskDepth.Size = new System.Drawing.Size(100, 20);
-            this.deskDepth.TabIndex = 5;
+            this.deskDepth.TabIndex = 3;
             this.deskDepth.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Depth_KeyPress);
             this.deskDepth.Validating += new System.ComponentModel.CancelEventHandler(this.Depth_Validating);
             // 
@@ -101,7 +101,7 @@ namespace MegaDesk_Carlson
             this.ButtonSaveQuote.Location = new System.Drawing.Point(688, 403);
             this.ButtonSaveQuote.Name = "ButtonSaveQuote";
             this.ButtonSaveQuote.Size = new System.Drawing.Size(100, 35);
-            this.ButtonSaveQuote.TabIndex = 6;
+            this.ButtonSaveQuote.TabIndex = 7;
             this.ButtonSaveQuote.Text = "Save Quote";
             this.ButtonSaveQuote.UseVisualStyleBackColor = true;
             this.ButtonSaveQuote.Click += new System.EventHandler(this.ButtonSaveQuote_Click);
@@ -111,7 +111,8 @@ namespace MegaDesk_Carlson
             this.numDrawers.Location = new System.Drawing.Point(15, 184);
             this.numDrawers.Name = "numDrawers";
             this.numDrawers.Size = new System.Drawing.Size(100, 20);
-            this.numDrawers.TabIndex = 9;
+            this.numDrawers.TabIndex = 4;
+            this.numDrawers.Validating += new System.ComponentModel.CancelEventHandler(this.numDrawers_Validating);
             // 
             // drawersLabel
             // 
@@ -135,30 +136,19 @@ namespace MegaDesk_Carlson
             // 
             this.surfaceMaterials.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.surfaceMaterials.FormattingEnabled = true;
-            this.surfaceMaterials.Items.AddRange(new object[] {
-            "Oak",
-            "Laminate ",
-            "Pine",
-            "Rosewood",
-            "Veneer"});
             this.surfaceMaterials.Location = new System.Drawing.Point(15, 238);
             this.surfaceMaterials.Name = "surfaceMaterials";
             this.surfaceMaterials.Size = new System.Drawing.Size(121, 21);
-            this.surfaceMaterials.TabIndex = 11;
+            this.surfaceMaterials.TabIndex = 5;
             // 
             // rushOrder
             // 
             this.rushOrder.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.rushOrder.FormattingEnabled = true;
-            this.rushOrder.Items.AddRange(new object[] {
-            "3",
-            "5",
-            "7",
-            "14"});
             this.rushOrder.Location = new System.Drawing.Point(15, 290);
             this.rushOrder.Name = "rushOrder";
             this.rushOrder.Size = new System.Drawing.Size(121, 21);
-            this.rushOrder.TabIndex = 13;
+            this.rushOrder.TabIndex = 6;
             // 
             // rushLabel
             // 

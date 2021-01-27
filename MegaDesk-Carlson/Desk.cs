@@ -29,28 +29,24 @@ namespace MegaDesk_Carlson
         public int Width
         {
             get { return width; }
-            set { width = value; }
         }
 
         private int depth;
         public int Depth
         {
             get { return depth; }
-            set { depth = value; }
         }
 
         private int drawers;
         public int Drawers
         {
             get { return drawers; }
-            set { drawers = value; }
         }
 
         private DesktopMaterial surfaceMaterial;
         public DesktopMaterial SurfaceMaterial
         {
             get { return surfaceMaterial; }
-            set { surfaceMaterial = value; }
         }
 
 
@@ -60,6 +56,7 @@ namespace MegaDesk_Carlson
             width = deskWidth;
             depth = deskDepth;
             drawers = numDrawers;
+            this.surfaceMaterial = surfaceMaterial;
         }
 
         public int surfaceArea()
