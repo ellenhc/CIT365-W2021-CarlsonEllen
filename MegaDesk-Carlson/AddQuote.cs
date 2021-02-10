@@ -23,11 +23,22 @@ namespace MegaDesk_Carlson
 
         ErrorProvider errorProvider = new System.Windows.Forms.ErrorProvider();
 
+        public List<KeyValuePair<string, int>> populateMaterials<DesktopMaterial>()
+        {
+            var materials = new List<KeyValuePair<string, int>>();
+            foreach (var e in Enum.GetValues(typeof(DesktopMaterial)))
+            {
+                materials.Add(new KeyValuePair<string, int>(e.ToString(), (int)e));
+            }
+            return materials;
+        }
+
         public AddQuote()
         {
             InitializeComponent();
             //Populates the surface material combobox
-            surfaceMaterials.DataSource = Enum.GetValues(typeof(DesktopMaterial));
+            //surfaceMaterials.DataSource = Enum.GetValues(typeof(DesktopMaterial));
+            surfaceMaterials.DataSource = populateMaterials<DesktopMaterial>();
             //Populates the rush order combobox
             rushOrder.DataSource = days;
             //Sets datetimepicker to today
