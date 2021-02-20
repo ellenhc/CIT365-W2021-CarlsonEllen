@@ -30,6 +30,10 @@ namespace MyScriptureJournal.Pages.Scriptures
 
         public async Task OnGetAsync()
         {
+            // Use LINQ to get list of books.
+            IQueryable<string> genreQuery = from x in _context.Scripture
+                                            orderby x.Book
+                                            select x.Book;
             // using System.Linq to query to select the scriptures
             var scriptures = from x in _context.Scripture
                              select x;
@@ -37,6 +41,11 @@ namespace MyScriptureJournal.Pages.Scriptures
             {
                 scriptures = scriptures.Where(s => s.Note.Contains(SearchString));
             }
+            if (!string.IsNullOrEmpty(ScriptureBook))
+            {
+                scriptures = scriptures.Where(x => x.Book == ScriptureBook);
+            }
+            Books = new SelectList(await genreQuery.Distinct().ToListAsync());
             Scripture = await scriptures.ToListAsync();
         }
     }
