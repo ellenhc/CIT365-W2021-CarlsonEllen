@@ -13,6 +13,9 @@ namespace MyScriptureJournal.Models
 
         [Display(Name = "Scripture Reference")]
         public string Title { get; set; }
+        //public string Book { get; set; }
+        //public string Chapter { get; set; }
+        //public string Verse { get; set; }
 
         [Display(Name = "Date Added")]
         [DataType(DataType.Date)]

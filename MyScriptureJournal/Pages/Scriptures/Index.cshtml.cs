@@ -29,12 +29,24 @@ namespace MyScriptureJournal.Pages.Scriptures
 
         public async Task OnGetAsync()
         {
+            // Use LINQ to get list of books in the scriptures.
+            IQueryable<string> bookQuery = from x in _context.Scripture
+                                            orderby x.Title
+                                            select x.Title;
+
             var scriptures = from x in _context.Scripture
                              select x;
             if (!string.IsNullOrEmpty(SearchString))
             {
                 scriptures = scriptures.Where(s => s.Note.Contains(SearchString));
             }
+
+            if (!string.IsNullOrEmpty(ScriptureBook))
+            {
+                scriptures = scriptures.Where(x => x.Title == ScriptureBook);
+            }
+            Books = new SelectList(await bookQuery.Distinct().ToListAsync());
+
             Scripture = await scriptures.ToListAsync();
         }
     }
