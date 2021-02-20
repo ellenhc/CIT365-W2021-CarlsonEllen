@@ -12,11 +12,13 @@
 </p>
 <form>
     <p>
+        Search by book:
         <select asp-for="ScriptureBook" asp-items="Model.Books">
             <option value="">All</option>
-        </select>
-        Title: <input type="text" asp-for="SearchString" />
+        </select><br />
+        Search notes: <input type="text" asp-for="SearchString" /><br />
         <input type="submit" value="Filter" />
+        <a asp-page="./Index">Back to full List</a>
     </p>
 </form>
 <table class="table table-hover">
