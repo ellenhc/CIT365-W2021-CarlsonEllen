@@ -9,7 +9,6 @@ namespace MyScriptureJournal.Models
     {
         public int ID { get; set; } //The database's primary key
         public string Title { get; set; }
-        public string ScriptureText { get; set; }
         public DateTime DateAdded { get; set; }
         public string Note { get; set; }
     }

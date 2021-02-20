@@ -20,11 +20,6 @@
                 <span asp-validation-for="Scripture.Title" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Scripture.ScriptureText" class="control-label"></label>
-                <input asp-for="Scripture.ScriptureText" class="form-control" />
-                <span asp-validation-for="Scripture.ScriptureText" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Scripture.DateAdded" class="control-label"></label>
                 <input asp-for="Scripture.DateAdded" class="form-control" />
                 <span asp-validation-for="Scripture.DateAdded" class="text-danger"></span>
@@ -42,7 +37,7 @@
 </div>
 
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a  class="btn btn-secondary" asp-page="./Index">Back to List</a>
 </div>
 
 @section Scripts {
