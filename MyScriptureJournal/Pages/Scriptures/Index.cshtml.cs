@@ -20,7 +20,7 @@ namespace MyScriptureJournal.Pages.Scriptures
         }
 
         public IList<Scripture> Scripture { get;set; }
-
+        
         public async Task OnGetAsync()
         {
             Scripture = await _context.Scripture.ToListAsync();
