@@ -2,23 +2,25 @@
 @model MyScriptureJournal.Pages.Scriptures.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "My Scriptures";
 }
 
 <h1>Index</h1>
 
 <p>
-    <a class="btn btn-primary" asp-page="Create">Create New</a>
+    <a class="btn btn-primary" asp-page="Create">Add New</a>
 </p>
 <form>
-    <p>
+    <p class="search-container">
         Search by book:
         <select asp-for="ScriptureBook" asp-items="Model.Books">
             <option value="">All</option>
         </select><br />
-        Search notes: <input type="text" asp-for="SearchString" /><br />
-        <input type="submit" value="Filter" />
-        <a asp-page="./Index">Back to full List</a>
+        Search notes by keyword: <input type="text" asp-for="SearchString" />
+        <div class="btn-container">
+            <input type="submit" value="Filter" />
+            <a class="btn btn-secondary" asp-page="./Index">Back to full List</a>
+        </div>
     </p>
 </form>
 <table class="table table-hover">
@@ -55,7 +57,7 @@
             <td>
                 <a class="btn btn-success" asp-page="./Details" asp-route-id="@item.ID">Details</a>
                 <a class="btn btn-primary" asp-page="./Edit" asp-route-id="@item.ID">Edit</a>
-                <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                <a class="btn btn-warning" asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
             </td>
         </tr>
 }

@@ -26,7 +26,7 @@ namespace MyScriptureJournal.Models
                         Book = "Moses",
                         Chapter = "1",
                         Verse = "39",
-                        DateAdded = DateTime.Parse("2021-2-20"),
+                        DateAdded = DateTime.Parse("2021-2-10"),
                         Note = "God wants us to return to Him."
                     },
 
@@ -35,7 +35,7 @@ namespace MyScriptureJournal.Models
                         Book = "D&C",
                         Chapter = "138",
                         Verse = "42",
-                        DateAdded = DateTime.Parse("2021-2-20"),
+                        DateAdded = DateTime.Parse("2021-2-15"),
                         Note = "After His Resurrection..."
                     },
 
@@ -44,7 +44,7 @@ namespace MyScriptureJournal.Models
                         Book = "Alma",
                         Chapter = "7",
                         Verse = "12",
-                        DateAdded = DateTime.Parse("2021-2-20"),
+                        DateAdded = DateTime.Parse("2021-2-25"),
                         Note = "The Savior suffered what we suffer so He can lift us up."
                     },
 
@@ -53,7 +53,7 @@ namespace MyScriptureJournal.Models
                         Book = "Matthew",
                         Chapter = "11",
                         Verse = "28",
-                        DateAdded = DateTime.Parse("2021-2-20"),
+                        DateAdded = DateTime.Parse("2021-1-20"),
                         Note = "He will take our burdens."
                     }
                 );

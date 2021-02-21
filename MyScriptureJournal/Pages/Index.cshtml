@@ -4,7 +4,50 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="~/images/man_reading_scriptures.jpeg" class="d-block w-100" alt="A man reads the scriptures">
+            <div class="carousel-caption d-none d-md-block">
+                <h1>My Scripture Journal</h1>
+                <p>Store all your thoughts and favorite scriptures in one tidy location.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="~/images/woman_studying.jpeg" class="d-block w-100" alt="A woman studies the scriptures and Come Follow Me manual">
+        </div>
+        <div class="carousel-item">
+            <img src="~/images/books_scriptures_eyeglasses.jpeg" class="d-block w-100" alt="Scriptures open on a table with a pair of glasses">
+        </div>
+        <div class="carousel-item">
+            <img src="~/images/scripture_study.jpeg" class="d-block w-100" alt="A man reads the scriptures in a class">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div><br />
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <img src="~/images/folder.png" alt="Drawing of a folder"/>
+            <h4>Keeps Scriptures Organized</h4>
+            <p>Easily file your favorite scriptures and related notes together.</p>
+        </div>
+        <div class="col">
+            <img src="~/images/note.png" alt="Drawing of a yellow post-it note"/>
+            <h4>Smart Notes Search</h4>
+            <p>Quickly and easily search through your notes by keyword.</p>
+        </div>
+        <div class="col">
+            <img src="~/images/book.png" alt="Drawing of a book"/>
+            <h4>Search By Book</h4>
+            <p>Easily find things by searching by book of scripture.</p>
+        </div>
+    </div>
 </div>
