@@ -21,6 +21,9 @@ namespace MyScriptureJournal.Pages.Scriptures
             _context = context;
         }
 
+        public string BookSort { get; set; }
+        public string DateSort { get; set; }
+
         public IList<Scripture> Scripture { get;set; }
         [BindProperty(SupportsGet = true)]
         public string SearchString { get; set; }
@@ -28,25 +31,45 @@ namespace MyScriptureJournal.Pages.Scriptures
         [BindProperty(SupportsGet = true)]
         public string ScriptureBook { get; set; }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string sortOrder)
         {
+            BookSort = String.IsNullOrEmpty(sortOrder) ? "book_desc" : "";
+            DateSort = sortOrder == "Date" ? "date_desc" : "Date";
+            IQueryable<Scripture> scripturesIQ = from x in _context.Scripture
+                                                 select x;
+            switch (sortOrder)
+            {
+                case "book_desc":
+                    scripturesIQ = scripturesIQ.OrderByDescending(x => x.Book);
+                    break;
+                case "Date":
+                    scripturesIQ = scripturesIQ.OrderBy(x => x.DateAdded);
+                    break;
+                case "date_desc":
+                    scripturesIQ = scripturesIQ.OrderByDescending(x => x.DateAdded);
+                    break;
+                default:
+                    scripturesIQ = scripturesIQ.OrderBy(x => x.Book);
+                    break;
+            }
+
             // Use LINQ to get list of books.
             IQueryable<string> genreQuery = from x in _context.Scripture
                                             orderby x.Book
                                             select x.Book;
-            // using System.Linq to query to select the scriptures
-            var scriptures = from x in _context.Scripture
-                             select x;
+
             if (!string.IsNullOrEmpty(SearchString))
             {
-                scriptures = scriptures.Where(s => s.Note.Contains(SearchString));
+                scripturesIQ = scripturesIQ.Where(s => s.Note.Contains(SearchString));
             }
             if (!string.IsNullOrEmpty(ScriptureBook))
             {
-                scriptures = scriptures.Where(x => x.Book == ScriptureBook);
+                scripturesIQ = scripturesIQ.Where(x => x.Book == ScriptureBook);
             }
+
+            Scripture = await scripturesIQ.AsNoTracking().ToListAsync();
             Books = new SelectList(await genreQuery.Distinct().ToListAsync());
-            Scripture = await scriptures.ToListAsync();
+            //Scripture = await scriptures.ToListAsync();
         }
     }
 }

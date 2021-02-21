@@ -8,7 +8,7 @@ namespace MyScriptureJournal.Models
     {
         public int ID { get; set; } //The database's primary key
 
-        [StringLength(20, MinimumLength = 4)]
+        [StringLength(20, MinimumLength = 1)]
         [Required] 
         public string Book { get; set; }
 
