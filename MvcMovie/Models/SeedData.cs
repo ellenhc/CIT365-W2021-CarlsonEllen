@@ -25,7 +25,7 @@ namespace MvcMovie.Models
                     {
                         Title = "The Saratov Approach",
                         ReleaseDate = DateTime.Parse("2013-10-09"),
-                        Genre = MovieGenres.Action.ToString(),
+                        Genre = MovieGenres.Action,
                         Price = 2.10M,
                         Rating = "PG-13",
                         ImagePath = "\\images\\The_Saratov_Approach.jpg"
@@ -35,7 +35,7 @@ namespace MvcMovie.Models
                     {
                         Title = "Once I Was a Beehive ",
                         ReleaseDate = DateTime.Parse("2015-08-14"),
-                        Genre = MovieGenres.Comedy.ToString(),
+                        Genre = MovieGenres.Comedy,
                         Price = 0.73M,
                         Rating = "PG",
                         ImagePath = "\\images\\Once_I_Was_a_Beehive.jpg"
@@ -45,7 +45,7 @@ namespace MvcMovie.Models
                     {
                         Title = "17 Miracles",
                         ReleaseDate = DateTime.Parse("2011-06-03"),
-                        Genre = MovieGenres.Adventure.ToString(),
+                        Genre = MovieGenres.Adventure,
                         Price = 1.99M,
                         Rating = "PG",
                         ImagePath = "\\images\\17miracles.jpg"
@@ -55,7 +55,7 @@ namespace MvcMovie.Models
                     {
                         Title = "Meet the Mormons",
                         ReleaseDate = DateTime.Parse("2014-10-10"),
-                        Genre = MovieGenres.Documentary.ToString(),
+                        Genre = MovieGenres.Documentary,
                         Price = 6.05M,
                         Rating = "PG",
                         ImagePath = "\\images\\Meet_the_Mormons.jpg"

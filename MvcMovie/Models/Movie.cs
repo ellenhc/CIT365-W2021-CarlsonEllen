@@ -40,7 +40,7 @@ namespace MvcMovie.Models
         public DateTime ReleaseDate { get; set; }
 
         [Required]
-        public string Genre { get; set; }
+        public MovieGenres Genre { get; set; }
 
         [Range(1, 100)]
         [DataType(DataType.Currency)]

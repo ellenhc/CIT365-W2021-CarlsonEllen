@@ -10,8 +10,8 @@ using MvcMovie.Data;
 namespace MvcMovie.Migrations
 {
     [DbContext(typeof(MvcMovieContext))]
-    [Migration("20210304182515_Rating")]
-    partial class Rating
+    [Migration("20210305082615_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,8 +28,8 @@ namespace MvcMovie.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Genre")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Genre")
+                        .HasColumnType("int");
 
                     b.Property<string>("ImagePath")
                         .HasColumnType("nvarchar(max)");
@@ -38,13 +38,17 @@ namespace MvcMovie.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Rating")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(5)
+                        .HasColumnType("nvarchar(5)");
 
                     b.Property<DateTime>("ReleaseDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("nvarchar(60)");
 
                     b.HasKey("Id");
 
