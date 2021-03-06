@@ -26,7 +26,7 @@ namespace MvcMovie.Models
                         Title = "The Saratov Approach",
                         ReleaseDate = DateTime.Parse("2013-10-09"),
                         Genre = MovieGenres.Action,
-                        Price = 2.10M,
+                        Price = 17.99M,
                         Rating = "PG-13",
                         ImagePath = "The_Saratov_Approach.jpg"
                     },
@@ -36,7 +36,7 @@ namespace MvcMovie.Models
                         Title = "Once I Was a Beehive ",
                         ReleaseDate = DateTime.Parse("2015-08-14"),
                         Genre = MovieGenres.Comedy,
-                        Price = 0.73M,
+                        Price = 9.99M,
                         Rating = "PG",
                         ImagePath = "Once_I_Was_a_Beehive.jpg"
                     },
@@ -46,7 +46,7 @@ namespace MvcMovie.Models
                         Title = "17 Miracles",
                         ReleaseDate = DateTime.Parse("2011-06-03"),
                         Genre = MovieGenres.Adventure,
-                        Price = 1.99M,
+                        Price = 9.99M,
                         Rating = "PG",
                         ImagePath = "17miracles.jpg"
                     },
@@ -56,9 +56,36 @@ namespace MvcMovie.Models
                         Title = "Meet the Mormons",
                         ReleaseDate = DateTime.Parse("2014-10-10"),
                         Genre = MovieGenres.Documentary,
-                        Price = 6.05M,
+                        Price = 5.99M,
                         Rating = "PG",
                         ImagePath = "Meet_the_Mormons.jpg"
+                    },
+                    new Movie
+                    {
+                        Title = "Other Side of Heaven",
+                        ReleaseDate = DateTime.Parse("2001-12-14"),
+                        Genre = MovieGenres.Drama,
+                        Price = 9.99M,
+                        Rating = "PG",
+                        ImagePath = "Other_Side_of_Heaven.jpg"
+                    },
+                    new Movie
+                    {
+                        Title = "Best Two Years",
+                        ReleaseDate = DateTime.Parse("2004-02-20"),
+                        Genre = MovieGenres.Comedy,
+                        Price = 9.99M,
+                        Rating = "PG",
+                        ImagePath = "Best_Two_Years.jpg"
+                    },
+                    new Movie
+                    {
+                        Title = "Young Joseph 1820",
+                        ReleaseDate = DateTime.Parse("2020-03-17"),
+                        Genre = MovieGenres.Drama,
+                        Price = 7.99M,
+                        Rating = "PG",
+                        ImagePath = "Young_Joseph_1820.png"
                     }
                 ); 
                 context.SaveChanges();
