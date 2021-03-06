@@ -5,10 +5,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MvcMovie.Models
 {
-    public class Movie
+    public class MovieCreateViewModel
     {
-        public int Id { get; set; }
-
         [StringLength(60, MinimumLength = 3)]
         [Required]
         public string Title { get; set; }
@@ -29,6 +27,7 @@ namespace MvcMovie.Models
         public string Rating { get; set; }
 
         [Display(Name = "Movie Poster")]
-        public string ImagePath { get; set; }
+
+        public IFormFile Image { get; set; }
     }
 }

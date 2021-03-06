@@ -28,7 +28,7 @@ namespace MvcMovie.Models
                         Genre = MovieGenres.Action,
                         Price = 2.10M,
                         Rating = "PG-13",
-                        ImagePath = "\\images\\The_Saratov_Approach.jpg"
+                        ImagePath = "The_Saratov_Approach.jpg"
                     },
 
                     new Movie
@@ -38,7 +38,7 @@ namespace MvcMovie.Models
                         Genre = MovieGenres.Comedy,
                         Price = 0.73M,
                         Rating = "PG",
-                        ImagePath = "\\images\\Once_I_Was_a_Beehive.jpg"
+                        ImagePath = "Once_I_Was_a_Beehive.jpg"
                     },
 
                     new Movie
@@ -48,7 +48,7 @@ namespace MvcMovie.Models
                         Genre = MovieGenres.Adventure,
                         Price = 1.99M,
                         Rating = "PG",
-                        ImagePath = "\\images\\17miracles.jpg"
+                        ImagePath = "17miracles.jpg"
                     },
 
                     new Movie
@@ -58,7 +58,7 @@ namespace MvcMovie.Models
                         Genre = MovieGenres.Documentary,
                         Price = 6.05M,
                         Rating = "PG",
-                        ImagePath = "\\images\\Meet_the_Mormons.jpg"
+                        ImagePath = "Meet_the_Mormons.jpg"
                     }
                 ); 
                 context.SaveChanges();

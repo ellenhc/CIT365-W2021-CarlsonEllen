@@ -9,7 +9,7 @@
 <div>
     <h4>@Html.DisplayFor(model => model.Title)</h4>
     <hr />
-    <img src="@Html.DisplayFor(model => model.ImagePath)" alt="@Html.DisplayFor(model => model.Title)"/>
+    <img src="~/images/@Html.DisplayFor(model => model.ImagePath)" alt="@Html.DisplayFor(model => model.Title)"/>
     <dl class="row">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Title)

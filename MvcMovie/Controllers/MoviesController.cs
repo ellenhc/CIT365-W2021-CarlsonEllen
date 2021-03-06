@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -14,9 +16,12 @@ namespace MvcMovie.Controllers
     {
         private readonly MvcMovieContext _context;
 
-        public MoviesController(MvcMovieContext context)
+        public IHostingEnvironment HostingEnvironment { get; }
+
+        public MoviesController(MvcMovieContext context, IHostingEnvironment HostingEnvironment)
         {
             _context = context;
+            this.HostingEnvironment = HostingEnvironment;
         }
 
         // GET: Movies
@@ -78,15 +83,34 @@ namespace MvcMovie.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Genre,Price,Rating")] Movie movie)
+        //public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Genre,Price,Rating")] MovieCreateViewModel model, Movie movie)
+        public async Task<IActionResult> Create(MovieCreateViewModel model)
         {
             if (ModelState.IsValid)
             {
+                string UniqueFileName = null;
+                if(model.Image != null)
+                {
+                    string UploadsFolder = Path.Combine(HostingEnvironment.WebRootPath, "images");
+                    UniqueFileName = Guid.NewGuid().ToString() + "_" + model.Image.FileName;
+                    string FilePath = Path.Combine(UploadsFolder, UniqueFileName);
+                    model.Image.CopyTo(new FileStream(FilePath, FileMode.Create));
+                }
+                //movie.ImagePath = UniqueFileName;
+                Movie movie = new Movie{
+                    Title = model.Title, 
+                    ReleaseDate = model.ReleaseDate, 
+                    Genre = model.Genre, 
+                    Price = model.Price, 
+                    Rating = model.Rating, 
+                    ImagePath = UniqueFileName 
+                };
                 _context.Add(movie);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(movie);
+            //return View(movie);
+            return View();
         }
 
         // GET: Movies/Edit/5
