@@ -25,20 +25,55 @@ namespace MvcMovie.Controllers
         }
 
         // GET: Movies
-        public async Task<IActionResult> Index(MovieGenres? movieGenre, string searchString)
+        /*public async Task<IActionResult> filterByGenre(MovieGenres? movieGenre)
         {
-            // Use LINQ to get list of genres.
             IQueryable<MovieGenres> genreQuery = from m in _context.Movie
-                                            orderby m.Genre
-                                            select m.Genre;
+                                                 orderby m.Genre
+                                                 select m.Genre;
+            var movies = from m in _context.Movie
+                         select m;
+
+            if (movieGenre != null)
+            {
+                movies = movies.Where(x => x.Genre == movieGenre);
+            }
+            var movieGenreVM = new MovieGenreViewModel
+            {
+                Genres = new SelectList(await genreQuery.Distinct().ToListAsync()),
+                Movies = await movies.ToListAsync()
+            };
+            return View(movieGenreVM);
+        }*/
+        public async Task<IActionResult> Index(string sortOrder, MovieGenres? movieGenre, string searchString)
+        {
+            ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewData["CurrentFilter"] = searchString;
 
             var movies = from m in _context.Movie
                          select m;
 
-            if (!string.IsNullOrEmpty(searchString))
+            switch (sortOrder)
+            {
+                case "Date":
+                    movies = movies.OrderBy(m => m.ReleaseDate);
+                    break;
+                case "date_desc":
+                    movies = movies.OrderByDescending(m => m.ReleaseDate);
+                    break;
+                default:
+                    movies = movies.OrderBy(m => m.Title);
+                    break;
+            }
+
+            if (!String.IsNullOrEmpty(searchString))
             {
                 movies = movies.Where(s => s.Title.Contains(searchString));
             }
+
+            // Use LINQ to get list of genres.
+            IQueryable<MovieGenres> genreQuery = from x in _context.Movie
+                                                 orderby x.Genre
+                                                 select x.Genre;
 
             if (movieGenre != null)
             {
@@ -52,6 +87,8 @@ namespace MvcMovie.Controllers
             };
 
             return View(movieGenreVM);
+            //return View(await movies.AsNoTracking().ToListAsync());
+
         }
 
         // GET: Movies/Details/5
