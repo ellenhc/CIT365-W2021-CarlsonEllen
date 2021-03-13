@@ -23,6 +23,9 @@ namespace ContosoUniversity.Models
 
         public int? InstructorID { get; set; } // property is nullable
 
+        [Timestamp]
+        public byte[] RowVersion { get; set; }
+
         public Instructor Administrator { get; set; } // navigation property that holds an Instructor entity
         public ICollection<Course> Courses { get; set; } // department may have many courses
     }
